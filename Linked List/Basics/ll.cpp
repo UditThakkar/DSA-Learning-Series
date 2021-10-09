@@ -1,10 +1,10 @@
 #include <bits/stdc++.h> 
 using namespace std; 
 
-struct Node{
+struct node{
     int data;
-    Node* next;
-    Node(int x){
+    node* next;
+    node(int x){
         data=x;
         next=NULL;
     }
@@ -12,9 +12,9 @@ struct Node{
 
 int main() 
 { 
-	Node *head=new Node(10);
-	Node *temp1=new Node(20);
-	Node *temp2=new Node(30);
+	node *head=new node(10);
+	node *temp1=new node(20);
+	node *temp2=new node(30);
 	head->next=temp1;
 	temp1->next=temp2;
 	cout<<head->data<<"-->"<<temp1->data<<"-->"<<temp2->data;
