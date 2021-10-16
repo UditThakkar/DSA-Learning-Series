@@ -22,3 +22,38 @@ class Solution{
 };
 
 // EFFICIENT SOLUTION
+
+class Solution{
+  public:
+  
+    Node* reverse(Node* head){
+        Node* curr = head, *prev = NULL;
+        while(curr!=NULL){
+            Node* next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+    //Function to check whether the list is palindrome.
+    bool isPalindrome(Node *head)
+    {
+        //Your code here
+        if(head==NULL) return true;
+        Node* slow = head, *fast = head;
+        while(fast->next!=NULL && fast->next->next!=NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        Node* rev = reverse(slow->next);
+        Node* curr = head;
+        while(rev!=NULL){
+            if(rev->data!=curr->data)
+                return false;
+            rev = rev->next;
+            curr = curr->next;
+        }
+        return true;
+    }
+};
